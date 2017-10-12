@@ -1,6 +1,7 @@
 //sequelize
 let Sequelize = require("sequelize");
-let sequelize = new Sequelize("issue", "root", "root", {
+//数据库名，账号，密码
+let sequelize = new Sequelize("juejin", "root", "root", {
   dialect: "mysql", // or "sqlite", "postgres", "mariadb"
   port: 3306, // or 5432 (for postgres)
   pool: {
@@ -20,123 +21,53 @@ sequelize
   .catch(err => {
     console.error("Unable to connect to the database:", err);
   });
-let users = sequelize.define("users", {
-  user_id: {
+
+
+let blog = sequelize.define("blog", {
+  tid: {
     type: Sequelize.INTEGER,
     primaryKey: true,
-    // allowNull: false
-  },
-  username: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  password: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-
-}, {
-    timestamps: false
-  }
-);
-let projects = sequelize.define("projects", {
-  project_id: {
-    type: Sequelize.INTEGER,
-    // allowNull: false,
-    primaryKey: true
+    allowNull:false
   },
   user_id: {
     type: Sequelize.INTEGER,
-    allowNull: false
   },
-  project_name: {
+  title: {
     type: Sequelize.STRING,
-    allowNull: false
   },
-  project_description: {
-    type: Sequelize.TEXT,
-    allowNull: false
-  },
-  project_issue_sum: {
-    type: Sequelize.INTEGER,
-    allowNull: true
-  },
-  project_issue_close: {
-    type: Sequelize.INTEGER,
-    allowNull: true
-  },
-  project_issue_open: {
-    type: Sequelize.INTEGER,
-    allowNull: true
-  }
-}, {
-    timestamps: false           // this will deactivate the timestamp columns
-  }
-);
-
-let issues = sequelize.define("issues", {
-  issue_id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-  },
-  user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false
-  },
-  project_id: {
-    type: Sequelize.INTEGER,
-    allowNull: true
-  },
-  issue_title: {
+  author: {
     type: Sequelize.STRING,
-    allowNull: false
   },
-  issue_statu: {
+  type: {
     type: Sequelize.INTEGER,
-    allowNull: true
   },
-  issue_content: {
+  loadURL: {
+    type: Sequelize.STRING,
+  },
+  label: {
+    type: Sequelize.STRING,
+  },
+  decoration: {
+    type: Sequelize.STRING,
+  },
+  // create_time: {
+  //   type: Sequelize.STRING,
+  // },
+  // alter_time: {
+  //   type: Sequelize.STRING,
+  // },
+  state: {
+    type: Sequelize.INTEGER,
+  },
+  content: {
     type: Sequelize.TEXT,
-    allowNull: true
   },
-  issue_time: {
-    type: Sequelize.DATE,
-    allowNull: true
-  },
-  issue_type: {
+  comments: {
     type: Sequelize.INTEGER,
-    allowNull: true
   },
-  issue_degree: {
+  star: {
     type: Sequelize.INTEGER,
-    allowNull: true
-  }
-}, {
-    timestamps: false
-  }
-);
-
-let issue_items = sequelize.define("issue_items", {
-  issue_item_id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
   },
-  user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false
-  },
-  issue_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false
-  },
-  issue_item_content: {
-    type: Sequelize.TEXT,
-    allowNull: false
-  },
-  issue_item_time: {
-    type: Sequelize.DATE,
-    allowNull: true
-  }
 }, {
     timestamps: false
   }
@@ -144,10 +75,7 @@ let issue_items = sequelize.define("issue_items", {
 
 
 let myTable = {
-  users:users,
-  projects: projects,
-  issues: issues,
-  issue_items: issue_items
+  blog:blog
 };
 
 module.exports = myTable;    
