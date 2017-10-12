@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-
+import Container from "./container/index";
 class App extends Component {
+
   render() {
+    const {store} = this.props;
     return (
       <div className="App">
-        呵呵11   
+        <Container {...store}/>   
       </div>
     );
   }
