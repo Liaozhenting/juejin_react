@@ -9,6 +9,7 @@ class indexCotroller {
   }
 
   async listBlog(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
     try {
       let index = req.query.index || 0;
       let mydata = await Blog.findAll({
@@ -19,7 +20,7 @@ class indexCotroller {
       })
       res.send({ code: 0, data: mydata, msg: 'success' })
     } catch (e) {
-      res.send({ code: e, msg: e })
+      res.send({ code: 1, msg: '找不到信息' })
       console.log(e)
     }
   }

@@ -17,5 +17,6 @@
     "sequelize": "^4.13.8",
     "serve-favicon": "~2.4.2",
     "supertest": "^3.0.0"
-  }
+  },
+  "apidoc": { "title": "掘金接口", "url" : "http://localhost:8091"}
 }
