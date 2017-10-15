@@ -1,7 +1,12 @@
 import React from "react";
+import Header from "./common/Header";
 
-export default (props)=> {
+export default ()=> {
     return (
-        <div>user</div>
+        <div>
+            <Header>
+                我
+            </Header>
+        </div>
     )
 }

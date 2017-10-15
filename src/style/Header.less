@@ -1,8 +1,18 @@
-.header {
-    height:50px;
-    line-height: 50px;
-    color: white;
-    font-size: 18px;
-    background: #007FFF;
-    text-align: center;
+.route-wrapper {
+    display: flex;
+    flex-basis: 100%;
+}
+div{
+    width: 100%;
+    &>.header {
+        display: flex;
+        justify-content: center;
+        height:50px;
+        line-height: 50px;
+        color: white;
+        font-size: 18px;
+        background: #007FFF;
+        z-index: 7;
+        position: relative;
+    }
 }

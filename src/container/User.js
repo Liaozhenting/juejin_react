@@ -4,14 +4,15 @@ import User from "../components/User";
 
 class UserCon extends Component {
     render() {
+        const props = this.props;
         return (
-            <User/>
+            <User {...props}/>
         );
     }
 }
 const mapStateToprops = (state)=> {
     return {
-        
+        content: "我"
     }
 }
 UserCon = connect(mapStateToprops)(UserCon);

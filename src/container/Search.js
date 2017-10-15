@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import {connect} from "react-redux";
-import Search from "../components/Search";
+// import {connect} from "react-redux";
+// import Search from "../components/Search";
 
 class SearchCon extends Component {
     render() {

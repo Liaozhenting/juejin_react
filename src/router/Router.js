@@ -4,7 +4,7 @@ import RouterLink from "./RouterLink";
 
 export default ()=>{
     return (
-        <div>
+        <div className="route-wrapper">
             <Routes/>
             <RouterLink/>
         </div>
