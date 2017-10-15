@@ -1,14 +1,12 @@
+// 主页面
 import React, { Component } from 'react';
-import HeaderCon from "./container/Header";
+import Router from "./router/Router";
 
 class App extends Component{
   render() {
     return (
-      <div className="App">
-        <HeaderCon/>
-      </div>
+      <Router/>
     );
   }
 }
-
 export default App;

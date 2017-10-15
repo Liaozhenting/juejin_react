@@ -1,16 +1,14 @@
 import React, {Component} from "react";
-import PropTypes from "prop-types";
+import "../../style/Footer.less";
 
 class Footer extends Component {
-    static proptypes = {
-        
-    }
     render() {
         return (
             <div className="footer">
-
+                11111
             </div>
         );
     }
+
 }
 export default Footer;

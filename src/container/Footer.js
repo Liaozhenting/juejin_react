@@ -1,23 +1,14 @@
 import React, {Component} from "react";
-import {connect} from "react-redux";
 import Footer from "../components/common/Footer";
-
+import home from "../../psd/miniImg/home.gif";
+import search from "../../psd/miniImg/search.gif";
+import note from "../../psd/miniImg/note.gif";
+import user from "../../psd/miniImg/user.gif";
 class FooterCon extends Component {
     render() {
         return (
-            <Footer content={this.props.content}/>
+            <div>111111</div>
         )
     }
 }
-
-const mapStateToProps = (state) => {
-    return {    
-        content: state.content
-    }
-}
-const mapDispatchToProps = (dispatch)=> {
-    return {
-        
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(FooterCon);
+export default FooterCon;

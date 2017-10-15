@@ -1,16 +1,15 @@
 import React, {Component} from "react";
-import PropTypes from "prop-types";
+import "../style/Blank.less";
 
 class Blank extends Component{
-    static propTypes = {
-        content: PropTypes.string
-    }
     render() {
         return (
             <div className="blank__content">
-                {this.props.content}
+                <div className="message-icon"></div>
+                <div className="message-content">{this.props.message}</div>
             </div>
         );
     }
+    
 }
 export default Blank;
