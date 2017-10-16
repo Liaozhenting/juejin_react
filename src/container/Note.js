@@ -5,13 +5,15 @@ import Note from "../components/Note";
 class NoteCon extends Component {
     render() {
         return (
-            <Note {...this.props}/>
+            <Note/>
         );
     }
 }
-const mapStateToProps = (state) =>{
+const mapStateToProps = (state, props) =>{
     return {
-        message: "现在没有消息哦！"
+        ...props,
+        message: "现在没有消息哦！",
+        themeColor: state.themeColor
     }
 }
 NoteCon = connect(mapStateToProps)(NoteCon);

@@ -11,12 +11,13 @@ class BlankCon extends Component{
     }
     render() {
         return (
-            <Blank message={this.state.message}/>
+            <Blank/>
         );
     }
 }
-const mapStateToProps = (state)=> {
+const mapStateToProps = (state, props)=> {
     return {
+        ...props,
         message: state.message
     }
 }

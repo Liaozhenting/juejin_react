@@ -3,9 +3,9 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import TodoInput from "./TodoInput";
 import * as TodoAction from "../redux/actions/index";
-const mapStateToProps = (state)=> ({
+const mapStateToProps = (state, props)=> ({
     todos: state.todos
-})
+});
 
 const mapDispatchToProps = (dispatch)=> ({
     action: bindActionCreators(TodoAction, dispatch)

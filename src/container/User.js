@@ -2,13 +2,14 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import User from "../components/User";
 import like from "../../psd/miniImg/like.png";
+import ToggleButtonCon from "../container/ToggleButton";
 
 class UserCon extends Component {
     constructor(props) {
         super(props);
         this.state = {
             name: "",
-            occupation: "职业"
+            occupation: ""
         }
     }
     componentWillMount() {
@@ -20,19 +21,19 @@ class UserCon extends Component {
                     occupation: "歌手"
                 }
             ); 
-        }, 100);
+        }, 0);
     }
     render() {
-        const props = this.props;
+        
         return (
-            <User {...props} {...this.state}/>
+            <User {...this.props} {...this.state}/>
         );
     }
 }
-const mapStateToprops = (state)=> {
+const mapStateToProps = (state, props)=> {
     return {
-        content: "我",
-        items: [
+        ...props,
+        items1: [
             {
                 url: like,
                 list: "jack",
@@ -53,8 +54,37 @@ const mapStateToprops = (state)=> {
                 list: "distory",
                 count: "24篇"
             }
+        ],
+        items2: [
+            {
+                url: like,
+                list: "jack"
+            },
+            {
+                url: like,
+                list: "rose"
+            },
+            {
+                url: like,
+                list: "mount",
+                ToggleButton: ToggleButtonCon
+            },
+            {
+                url: like,
+                list: "distory"
+            }
         ]
     }
 }
-UserCon = connect(mapStateToprops)(UserCon);
-export default UserCon;
+const mapDispatchToProps = (dispatch)=> {
+    
+    return {
+        onToggleButton: (themeColor) => {
+            dispatch({
+                type: "TOGGLE_COLOR",
+                themeColor: themeColor
+            });
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(UserCon);

@@ -1,8 +1,10 @@
 import React from "react";
+import {connect} from "react-redux";
 import Routes from "./Routes";
 import RouterLink from "./RouterLink";
 
-export default ()=>{
+ const RoutesCon =(props)=>{
+    console.log(props);
     return (
         <div className="route-wrapper">
             <Routes/>
@@ -10,3 +12,10 @@ export default ()=>{
         </div>
     )
 }
+const mapStateToProps = (state, props)=> {
+    return {
+        ...props,
+        themeColor: state.themeColor
+    }
+}
+export default connect(mapStateToProps)(RoutesCon);

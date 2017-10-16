@@ -1,16 +1,14 @@
 import {combineReducers} from "redux";
+let initState = {
+    themeColor: "#333"
+}
 
-const contentReducer = (state, action)=> {
-    if(!state) {
-        return {
-            
-        }
-    }
+const contentReducer = (state = initState, action)=> {
     switch(action.type) {
-        case "UPDATE_CONTENT":
+        case "TOGGLE_COLOR":
             return {
                 ...state,
-                conetnt: action.content
+                themeColor: action.themeColor
             }
         default:
             return state;
